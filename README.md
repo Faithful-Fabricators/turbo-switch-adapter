@@ -16,9 +16,9 @@ The **T.U.R.B.O. Switch Adapter** is a universal, open-source hardware accessory
 
 ## 🕹️ Key Features
 * **100% Universal Compatibility:** Features a polarity-free, bidirectional solid-state output stage. It functions seamlessly on any switch-adapted toy on the market, whether it switches the positive terminal, the negative ground, or utilizes internal logic loops.
-* **Indestructible Current Handling:** Built around a heavy-duty industrial photorelay capable of routing up to **5.0 Amps of continuous current** and absorbing up to **15.0 Amp startup surges** from stalling electric motors.
+* **Significant Current Handling:** Built around a heavy-duty industrial photorelay capable of routing up to **5.0 Amps of continuous current** and absorbing up to **15.0 Amp startup surges** from stalling electric motors.
 * **Complete Optical Isolation:** The switch loop and the toy loop are separated by a physical beam of light inside the chip. Electrical faults or short circuits inside a malfunctioning toy can never travel backward down the cable to damage a user's custom switch hardware.
-* **Ultra-Low Voltage Drop:** The external switch loop is reduced to drawing a microscopic 5mA trigger pulse. Voltage drop across a 6-foot wire falls to essentially zero, completely restoring the toy's factory performance.
+* **Ultra-Low Voltage Drop:** The external switch loop is reduced to drawing a microscopic 5mA trigger pulse. Voltage drop across a 6-foot wire is mitigated, significantly restoring the toy's factory performance.
 * **Keyfob Form Factor:** Designed to run autonomously on a single CR2032 coin cell battery, keeping the entire footprint smaller than a standard car key remote.
 
 ---
