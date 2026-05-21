@@ -28,3 +28,53 @@ Classic adaptive setups force the thin switch wire to carry the heavy electrical
 
 1. **The Control Loop (Safe & Light):** When a user presses their accessibility switch, a tiny 5mA pulse flows from the internal CR2032 battery through the long cable. This pulse does not power the motor; it only illuminates a microscopic internal LED inside the adapter's chip.
 2. **The Power Loop (Local & Strong):** The light from that LED instantly closes a high-power solid-state switch right at the toy's port. The toy's motor draws its heavy current locally from its own internal batteries over a distance of millimeters instead of feet, operating at maximum power.
+
+```
+[INPUT CONTROL LOOP - Low Current]             [OUTPUT POWER LOOP - High Current][Interact Switch]                      ┌──► [Any Toy Jack Contact A]│                               │(6ft Cable)     (Optical Isolation)  ││                ░░░░           │  (Handles up to 5A continuous)▼                 █             │  (Polarity free / Bidirectional)[Internal LED] ───────► █ ────────────┴──► [Any Toy Jack Contact B](Requires ~5mA)         ██ (PhotoMOSFET Switch)
+```
+
+1. **The Control Loop (Safe & Light):** When a user presses their accessibility switch, a tiny 5mA pulse flows from the internal CR2032 battery through the long cable. This pulse does not power the motor; it only illuminates a microscopic internal LED inside the adapter's chip.
+2. **The Power Loop (Local & Strong):** The light from that LED instantly closes a high-power solid-state switch right at the toy's port. The toy's motor draws its heavy current locally from its own internal batteries over a distance of millimeters instead of feet, operating at maximum power.
+
+---
+
+## 📦 Bill of Materials (BOM)
+
+Total cost per unit is approximately **$11.00 – $14.00** for prototypes, dropping to **~$8.00** when components are batch-purchased in quantities of 50+.
+
+
+| Component | Description | Suggested Part Number | Quantity |
+| :--- | :--- | :--- | :--- |
+| **High-Current Photorelay** | 8-Pin DIP Optocoupler (5A DC, 40V) | Toshiba TLP3547(F) | 1 |
+| **DIP Socket** | 8-Pin IC Socket (Protects chip from soldering heat) | Standard Through-Hole | 1 |
+| **Current Limiting Resistor** | 150 $\Omega$ $\pm$5% Resistor (1/4 Watt) | Standard Carbon Film | 1 |
+| **Coin Cell Battery Holder** | 20mm Through-Hole CR2032 Retainer | Linx Technologies BAT-HLD-001 | 1 |
+| **Lithium Coin Cell** | CR2032 3V Battery | Standard | 1 |
+| **Input Switch Jack** | 3.5mm Female Mono Phone Jack | CUI Devices SJ1-3523N | 1 |
+| **Output Toy Tail** | 3.5mm Male Mono Plug with 18 AWG Cable | Standard Heavy-Duty Repair Pigtail | 1 |
+| **Circuit Base** | Solderable Perfboard | Standard FR4 Slices (approx 1x2") | 1 |
+
+---
+
+## 🛠️ Step-by-Step Assembly & Soldering Sequence
+
+To ensure successful builds across volunteer assembly lines, follow this layout sequence:
+
+1. **Mount the Socket First:** Solder the 8-pin DIP IC socket to the center of your perfboard. *Do not solder the TLP3547 chip directly to the board* to prevent thermal damage from the soldering iron.
+2. **Bridge the Output Pins:** Flip the board over. Use small solder bridges or short solid-core wire pieces to permanently connect **Pin 5 to Pin 8**, and **Pin 6 to Pin 7**. This bridges the internal output MOSFETs into a parallel configuration for maximum 5A current handling.
+3. **Attach the Power Loop:** Solder the positive (+) leg of the CR2032 battery retainer to the **Tip pin** of the 3.5mm female audio jack.
+4. **Wire the Trigger Resistor:** Connect the **Sleeve pin** of the female audio jack to one side of the 150-ohm resistor. Run the other side of the resistor directly to **Pin 1 (Anode)** of the IC socket.
+5. **Complete the Ground Loop:** Route **Pin 2 (Cathode)** of the IC socket straight back to the negative (-) terminal of the CR2032 battery retainer.
+6. **Connect the Toy Tail:** Solder the positive wire (Tip) of your thick 18 AWG male pigtail to the joined **Pins 5/8** node. Solder the ground wire (Sleeve) of that same tail to the joined **Pins 6/7** node.
+7. **Final Quality Check:** Ensure no stray solder tracks bridge the input side (Pins 1–4) over to the output side (Pins 5–8) to keep the optical isolation 100% pure. Pop the TLP3547 chip into the socket, slide a battery in, and begin testing.
+
+---
+
+## ⚖️ License
+
+This project is open-source and built for the community. We use a split license to protect both the hardware and the documentation:
+
+* **Hardware & Electronics:** The 3D design files, circuit schematics, and PCB layouts are licensed under the **CERN Open Hardware Licence v2 - Weakly Reciprocal (CERN-OHL-W-2.0)**.
+* **Documentation & Guides:** All assembly manuals, written documentation, and text are licensed under the **MIT License**.
+
+By keeping this project open, we ensure that families, schools, and organizations worldwide can continue to fabricate, modify, and improve the T.U.R.B.O. Switch Adapter without financial barriers.
