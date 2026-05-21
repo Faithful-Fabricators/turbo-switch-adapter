@@ -33,9 +33,6 @@ Classic adaptive setups force the thin switch wire to carry the heavy electrical
 [INPUT CONTROL LOOP - Low Current]             [OUTPUT POWER LOOP - High Current][Interact Switch]                      ┌──► [Any Toy Jack Contact A]│                               │(6ft Cable)     (Optical Isolation)  ││                ░░░░           │  (Handles up to 5A continuous)▼                 █             │  (Polarity free / Bidirectional)[Internal LED] ───────► █ ────────────┴──► [Any Toy Jack Contact B](Requires ~5mA)         ██ (PhotoMOSFET Switch)
 ```
 
-1. **The Control Loop (Safe & Light):** When a user presses their accessibility switch, a tiny 5mA pulse flows from the internal CR2032 battery through the long cable. This pulse does not power the motor; it only illuminates a microscopic internal LED inside the adapter's chip.
-2. **The Power Loop (Local & Strong):** The light from that LED instantly closes a high-power solid-state switch right at the toy's port. The toy's motor draws its heavy current locally from its own internal batteries over a distance of millimeters instead of feet, operating at maximum power.
-
 ---
 
 ## 📦 Bill of Materials (BOM)
